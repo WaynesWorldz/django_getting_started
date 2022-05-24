@@ -3,12 +3,12 @@ from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from meetings.models import Meeting
+from meetings.models import Meeting, Room
 
 
 def welcome(request):
     return render(request, "website/welcome.html",
-                  {"num_meetings": Meeting.objects.count()})
+                  {"meetings": Meeting.objects.all})
 
 
 def date(request):
@@ -17,3 +17,8 @@ def date(request):
 
 def about(request):
     return HttpResponse("I am me")
+
+
+def rooms_list(request):
+    return render(request, "meetings/rooms_list.html",
+                  {"rooms": Room.objects.all()})
