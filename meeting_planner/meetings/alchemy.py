@@ -5,9 +5,9 @@ from sqlalchemy import create_engine
 
 engine = create_engine(
     'snowflake://{user}:{password}@{account_identifier}/'.format(
-        user='snowflake',
-        password='i9.et!YK9&J6@fA',
-        account_identifier='redclassic.east-us-2',
+        user='WRICHARD',
+        password='Wandffm58!',
+        account_identifier='redclassic.east-us-2.azure',
     )
 )
 try:
@@ -15,6 +15,8 @@ try:
     print("Submitting query...")
     results = connection.execute('select current_version()').fetchone()
     print(results[0])
+    wait = input("Press Enter to continue.")
+    print("something")
 finally:
     connection.close()
     engine.dispose()

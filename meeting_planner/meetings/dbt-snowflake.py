@@ -9,9 +9,11 @@ ctx = snowflake.connector.connect(
     )
 cs = ctx.cursor()
 try:
-    cs.execute("SELECT current_version()")
-    one_row = cs.fetchone()
-    print(one_row[0])
+    cs.execute("SELECT * FROM RC_PROD.MDMLOADS.PNETNEWDRIVERS")
+    all_rows = cs.fetchall()
+    print(all_rows[0])
+    wait = input("Press Enter to continue.")
+    print("something")
 finally:
     cs.close()
 ctx.close()
